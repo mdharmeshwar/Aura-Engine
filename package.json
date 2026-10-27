@@ -1,0 +1,44 @@
+{
+  "name": "aura-engine",
+  "version": "1.0.0",
+  "description": "Aura Engine inventory management API for Sprint 18",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed": "node scripts/seedProducts.js",
+    "indexes": "node scripts/checkIndexes.js",
+    "clear": "node scripts/clearProducts.js",
+    "benchmark": "node scripts/benchmark.js",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand"
+  },
+  "keywords": [
+    "inventory",
+    "mongodb",
+    "express",
+    "aura-engine"
+  ],
+  "author": "Prodesk IT",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "mongodb-memory-server": "^11.3.0",
+    "mongoose": "^9.11.4",
+    "morgan": "^1.12.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.3.1"
+  }
+}

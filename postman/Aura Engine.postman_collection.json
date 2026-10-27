@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "Aura Engine API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Inventory List",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/inventory?page=1&limit=10&category=Electronics&sort=-price"
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productName\": \"Wireless Headset\",\n  \"sku\": \"AUR-1001\",\n  \"category\": \"Electronics\",\n  \"price\": 149.99,\n  \"cost\": 98.5,\n  \"stockQuantity\": 15,\n  \"reorderLevel\": 5\n}"
+        },
+        "url": "{{baseUrl}}/api/inventory"
+      }
+    },
+    {
+      "name": "Invalid Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productName\": \"Bad Product\",\n  \"sku\": \"AUR-1002\",\n  \"category\": \"Electronics\",\n  \"price\": 25,\n  \"cost\": 30,\n  \"stockQuantity\": -1,\n  \"reorderLevel\": 2\n}"
+        },
+        "url": "{{baseUrl}}/api/inventory"
+      }
+    },
+    {
+      "name": "Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 179.99,\n  \"stockQuantity\": 21\n}"
+        },
+        "url": "{{baseUrl}}/api/inventory/:id"
+      }
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/inventory/:id"
+      }
+    },
+    {
+      "name": "Analytics",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/analytics"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ]
+}
